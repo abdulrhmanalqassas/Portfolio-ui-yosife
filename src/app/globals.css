@@ -14,13 +14,14 @@
   --accent: #9b91f9;
   --border: rgba(255, 255, 255, 0.07);
   --gutter: clamp(28px, 3.333vw, 64px);
+  --header-height: 82px;
 }
 * {
   box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 24px;
+  scroll-padding-top: calc(var(--header-height) + 16px);
   color-scheme: dark;
 }
 body {
@@ -162,15 +163,17 @@ img {
   border-radius: 100px;
 }
 .site-header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
-  z-index: 10;
+  z-index: 50;
   height: 82px;
   padding: 18px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(136, 136, 128, 0.2);
+  background: rgba(24, 24, 24, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 .logo {
   position: relative;
@@ -1409,6 +1412,7 @@ dialog form {
   :root {
     --gutter: 20px;
     --background: #000;
+    --header-height: 69px;
   }
   .desktop-copy,
   .desktop-asset,

@@ -25,7 +25,7 @@ The compatibility flag avoids an npm 11 peer-dependency resolution stall encount
 
 [Figma source](https://www.figma.com/design/9pgdAPZDb2V6DCc9LmvvXJ/Portofolio-From-Me?node-id=0-1): page `Portfolio`, desktop frame `264:2209` (1920 × 8564), mobile frame `51:2` (430 × 8621). No tablet frame was supplied; intermediate layouts are inferred.
 
-The `/` route contains anchors `#home`, `#about`, `#services`, `#projects`, `#plans`, `#tools`, `#faq`, and `#contact`. It is rendered on the server and statically prerendered. The mobile menu, portfolio gallery controls, and modal dialogs use small client components. FAQs use native accessible disclosures. Project and tool cards wrap into responsive grids; the portfolio gallery uses arrow buttons and arrow keys instead of native horizontal scrolling.
+The `/` route contains anchors `#home`, `#about`, `#portfolio`, `#services`, `#projects`, `#plans`, `#tools`, `#faq`, and `#contact`. It is rendered on the server and statically prerendered. The mobile menu, portfolio gallery controls, and modal dialogs use small client components. FAQs use native accessible disclosures. Project and tool cards wrap into responsive grids; the portfolio gallery retains horizontal mouse and touch scrolling, with optional arrow buttons and arrow keys. Only the main page is constrained against sideways scrolling.
 
 The exact exported images and icons are stored in `public/figma`. Syne, DM Sans, and Inter are self-hosted through `next/font`; no temporary Figma asset URLs are used at runtime. Hero hand animations reproduce the source's two-second alternating scale tracks and respect reduced motion.
 

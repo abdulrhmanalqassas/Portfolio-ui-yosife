@@ -1,6 +1,7 @@
-/* Collections wrap within the viewport; the preview gallery uses explicit controls. */
+/* Constrain the document while preserving the portfolio's horizontal gallery. */
 html,
 body {
+  overflow-x: clip;
   overscroll-behavior-x: none;
 }
 
@@ -26,9 +27,9 @@ body {
 }
 
 .preview-viewport {
-  overflow-x: hidden;
+  overflow-x: auto;
   overscroll-behavior-inline: contain;
-  touch-action: pan-y;
+  touch-action: pan-x pan-y;
 }
 
 .gallery-controls {

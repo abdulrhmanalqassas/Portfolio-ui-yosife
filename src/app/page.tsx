@@ -287,6 +287,7 @@ export default function Home() {
           </div>
         </section>
         <section
+          id="portfolio"
           className="portfolio-strip section"
           aria-label="Portfolio previews"
         >
