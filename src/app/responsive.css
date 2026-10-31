@@ -1,0 +1,255 @@
+/* Collections wrap within the viewport; the preview gallery uses explicit controls. */
+html,
+body {
+  overscroll-behavior-x: none;
+}
+
+.section,
+.section-heading,
+.about-content,
+.about-heading h2 > span,
+.service-card,
+.plan-card,
+.tool-card {
+  min-inline-size: 0;
+}
+
+.section-heading h2,
+.about-heading h2 {
+  overflow-wrap: anywhere;
+}
+
+.portfolio-gallery {
+  display: flow-root;
+  position: relative;
+  min-inline-size: 0;
+}
+
+.preview-viewport {
+  overflow-x: hidden;
+  overscroll-behavior-inline: contain;
+  touch-action: pan-y;
+}
+
+.gallery-controls {
+  position: absolute;
+  inset-inline-end: var(--gutter);
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+
+.gallery-controls button {
+  display: grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  border: 1px solid rgba(155, 145, 249, 0.4);
+  border-radius: 50%;
+  background: #161616;
+  font-size: 22px;
+}
+
+.gallery-controls button:hover:not(:disabled) {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+.gallery-controls button:disabled {
+  opacity: 0.35;
+}
+
+.projects {
+  min-height: 0;
+  padding: 80px var(--gutter);
+  overflow: visible;
+}
+
+.projects .section-heading h2 {
+  min-height: 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 0;
+  overflow: visible;
+}
+
+.projects .project-card {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.project-open {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.project-preview {
+  flex: none;
+  width: 100%;
+}
+
+.projects .project-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+}
+
+.projects .project-type {
+  font-size: 10px;
+}
+
+.projects .project-copy h3 {
+  font-size: 19px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.projects .project-description {
+  flex: 1;
+  min-height: 0;
+  font-size: 13px;
+  line-height: 20.8px;
+}
+
+.projects .project-meta {
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.projects .tags span {
+  font-size: 10px;
+  padding: 4px 9px;
+}
+
+.projects .status {
+  font-size: 9px;
+  padding: 4px 8px;
+}
+
+.phones-preview .phone {
+  width: 72px;
+  height: 148px;
+  left: calc(50% - 88px);
+  border-radius: 12px;
+  transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+.phones-preview .phone:nth-child(2) {
+  width: 88px;
+  height: 172px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.phones-preview .phone:nth-child(3) {
+  left: calc(50% + 88px);
+  transform: translate(-50%, -50%) rotate(3deg);
+}
+
+.tools {
+  min-height: 0;
+  padding: 64px var(--gutter);
+}
+
+.tools .section-heading h2 {
+  height: auto;
+  min-height: 0;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+  padding: 0;
+  overflow: visible;
+}
+
+.tools .tool-card {
+  width: auto;
+  min-width: 0;
+  padding: 20px 12px;
+}
+
+.tools .tool-card h3 {
+  font-size: 12px;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1501px) and (max-width: 1919px) {
+  .about {
+    min-height: 0;
+    padding-block: 130px 100px;
+  }
+  .about-heading {
+    min-height: 0;
+  }
+
+  .about-heading h2 {
+    height: auto;
+    min-height: 0;
+    font-size: clamp(38px, 3.28vw, 63px);
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1800px) {
+  .projects-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .projects {
+    padding-block: 48px;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .tools .tool-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #111;
+    padding-block: 16px;
+  }
+
+  .tools .tool-card h3 {
+    margin-top: 10px;
+  }
+
+  .portfolio-strip:before,
+  .portfolio-strip:after {
+    height: 283px;
+  }
+}
