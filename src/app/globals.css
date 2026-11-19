@@ -375,17 +375,28 @@ img {
   align-items: center;
   border-block: 1px solid var(--border);
 }
-.marquee > div {
-  min-width: max-content;
+.marquee-group {
   display: flex;
-  justify-content: center;
+  flex: none;
+  min-width: 100%;
+  justify-content: space-between;
   gap: 40px;
-  margin: auto;
+  padding-inline-end: 40px;
+  animation: marquee-scroll 30s linear infinite;
 }
-.marquee span {
+.marquee:hover .marquee-group {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+.marquee li {
   display: inline-flex;
   align-items: center;
   gap: 40px;
+  white-space: nowrap;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.25);
   font-family: var(--font-dm-sans), sans-serif;
@@ -1533,13 +1544,6 @@ dialog form {
   .hero-buttons .button:first-child span {
     font-size: 16px;
   }
-  .marquee {
-    height: 59px;
-  }
-  .marquee > div {
-    margin-left: -883px;
-    gap: 40px;
-  }
   .eyebrow {
     font-size: 11px;
     line-height: 14px;
@@ -2594,6 +2598,23 @@ dialog form {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .marquee {
+    height: auto;
+    min-height: 59px;
+  }
+  .marquee-group {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+    padding: 12px 16px;
+  }
+  .marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+  .marquee li {
+    gap: 24px;
   }
   *,
   *:before,

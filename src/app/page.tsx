@@ -14,6 +14,17 @@ import {
   stack,
 } from "@/lib/portfolio";
 
+const designSpecialties = [
+  "Mobile Apps",
+  "Web Design",
+  "Design Systems",
+  "Prototyping",
+  "UI/UX Strategy",
+  "Figma Expert",
+  "User Research",
+  "Wireframing",
+];
+
 function Asset({
   file,
   mobileFile,
@@ -197,24 +208,23 @@ export default function Home() {
           <span className="side-label side-label-left">UI/UX Designer</span>
           <span className="side-label side-label-right">Cairo, Egypt</span>
         </section>
-        <div className="marquee" aria-label="Design specialties">
-          <div>
-            {[
-              "Mobile Apps",
-              "Web Design",
-              "Design Systems",
-              "Prototyping",
-              "UI/UX Strategy",
-              "Figma Expert",
-              "User Research",
-              "Wireframing",
-            ].map((item) => (
-              <span key={item}>
-                {item}
-                <i aria-hidden="true">◆</i>
-              </span>
-            ))}
-          </div>
+        <div className="marquee">
+          {[false, true].map((isDuplicate) => (
+            <ul
+              key={String(isDuplicate)}
+              className="marquee-group"
+              role="list"
+              aria-label="Design specialties"
+              aria-hidden={isDuplicate || undefined}
+            >
+              {designSpecialties.map((item) => (
+                <li key={item}>
+                  {item}
+                  <i aria-hidden="true">◆</i>
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
         <section
           id="about"
